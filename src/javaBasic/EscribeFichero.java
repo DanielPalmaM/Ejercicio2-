@@ -2,22 +2,29 @@ package javaBasic;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+
+import javaBasic.arregloObjetos.Persona;
 
 
 public class EscribeFichero
 {
-    public static void main(String[] args)
-    {
-        FileWriter fichero = null;
+    
+    public static void GenerarFichero(String rutaFichero, ArrayList<Persona> textoImprimir) {
+    	FileWriter fichero = null;
         PrintWriter pw = null;
-        try
+        
+    	try
         {
-            fichero = new FileWriter("./test.txt");
+            fichero = new FileWriter(rutaFichero);
             pw = new PrintWriter(fichero);
 
-            for (int i = 0; i < 5; i++)
-                pw.println("Linea " + i);
-
+            for (int i = 0; i < textoImprimir.size(); i++) {
+                pw.println(textoImprimir.get(i).getNombre());
+            	pw.println(textoImprimir.get(i).getApellido());
+            	pw.println(textoImprimir.get(i).getEdad());
+            	pw.println(textoImprimir.get(i).getSalario());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -30,5 +37,7 @@ public class EscribeFichero
               e2.printStackTrace();
            }
         }
+    	
+    	
     }
 }

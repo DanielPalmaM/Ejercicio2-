@@ -6,13 +6,18 @@ import java.io.InputStream;
 
 public class LeerUnArchivo {
 
-   public static void main(String[] args) throws IOException {
+   public static void BuscarTrabajador(String rutaArchivoLectura, String palabraBusqueda) throws IOException {
 		 InputStream is = null;
 		   int i;
 		   char c;
+		   String str = "";
+           StringBuilder sb = new StringBuilder();
+
+		   boolean encuentraPersona;
+		   
         try {
         // new input stream created
-        is = new FileInputStream("./test.txt");
+        is = new FileInputStream(rutaArchivoLectura);
         
         System.out.println("Characters printed:");
         
@@ -23,7 +28,23 @@ public class LeerUnArchivo {
            c = (char)i;
            
            // prints character
-           System.out.print(c);
+//           System.out.print(c);
+;
+           
+           if (c != '\r'){ 
+        	   sb.append(c);
+               str = sb.toString();  
+        	   
+           }else {        	
+        	   if (str.equalsIgnoreCase(palabraBusqueda)) {
+        		   System.out.println("Ha coincido la palabra buscada: "+str);
+        		   break;
+        	   }else {
+        	   System.out.println("No ha coincidido la palabra buscada: "+str+ " Debe coincidir con: "+palabraBusqueda); 
+        	   }
+        	   str = "";
+            }
+           
         }
         
      } catch(Exception e) {
@@ -34,5 +55,6 @@ public class LeerUnArchivo {
         if(is!=null)
            is.close();
      }
+		//return encuentraPersona;
   }
 }

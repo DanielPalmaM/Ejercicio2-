@@ -6,38 +6,32 @@ import javaBasic.arregloObjetos.Persona;
 
 public class ScannerExample {
 
-	public static ArrayList<Persona> GenerarScanner(String saludo) {
+	public static ArrayList<Persona> GenerarScanner(String saludo, Scanner scanMantenedor) {
 		int a = 1;
 		String continuar="";
 		String detener= "n";
-		Scanner in = new Scanner(System.in);
 		ArrayList <Persona> arregloPersona = new ArrayList<Persona>();
 
     	    	
 		do {  
-//         Scanner scan = new Scanner(saludo);  
-//         //Check if the scanner has a token  
-//         System.out.println("Boolean Result: " + scan.hasNext());  
-//         //Print the string  
-//         System.out.println("String: " +scan.nextLine());  
-//         scan.close();           
+       
          System.out.println("--------Ingrese los datos del trabajador-------- ");  
          
          System.out.print("Enter your name: ");    
-         String name = in.next();
-         System.out.println("Name: " + name);
+         String nombre = scanMantenedor.next();
+         System.out.println("Name: " + nombre);
          System.out.print("Enter your apellido: ");    
-         String apellido = in.next();
+         String apellido = scanMantenedor.next();
          System.out.println("Name: " + apellido);           
          System.out.print("Enter your age: ");  
-         int age = in.nextInt();  
-         System.out.println("Age: " + age);  
+         int edad = scanMantenedor.nextInt();  
+         System.out.println("Age: " + edad);  
          System.out.print("Enter your salary: ");  
-         int salary = in.nextInt();  
-         System.out.println("Salary: " + salary);
+         int salario = scanMantenedor.nextInt();  
+         System.out.println("Salary: " + salario);
          System.out.print("Desea continuar ingresado trabajador: s(si) o n(no)");
-         continuar=in.next();
-         arregloPersona.add(new Persona(name, apellido, age, salary));
+         continuar=scanMantenedor.next();
+         arregloPersona.add(new Persona(nombre, apellido, edad, salario));
          
          if (continuar.equalsIgnoreCase("s")){
          System.out.println("La respuesta es: "+continuar+ " puede continuar ingresando trabajador");
@@ -47,7 +41,6 @@ public class ScannerExample {
          
 		}while(!detener.equals(continuar));
         
-		in.close();
 		System.out.println("El largo del arreglo es: "+arregloPersona.size());
 		return arregloPersona;
 	}

@@ -3,6 +3,10 @@ package javaBasic;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import javaBasic.arregloObjetos.Persona;
 
 public class LeerUnArchivo {
 
@@ -13,7 +17,6 @@ public class LeerUnArchivo {
 		   String str = "";
            StringBuilder sb = new StringBuilder();
 
-		   boolean encuentraPersona;
 		   
         try {
         // new input stream created
@@ -26,11 +29,7 @@ public class LeerUnArchivo {
         
            // converts integer to character
            c = (char)i;
-           
-           // prints character
-//           System.out.print(c);
-;
-           
+                      
            if (c != '\r'){ 
         	   sb.append(c);
                str = sb.toString();  
@@ -57,4 +56,6 @@ public class LeerUnArchivo {
      }
 		//return encuentraPersona;
   }
+   
+   
 }

@@ -1,7 +1,10 @@
-package javaBasic;
+package Ejecutables;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import javaBasic.EscribeFichero;
+import javaBasic.LeerUnArchivo;
 import javaBasic.arregloObjetos.Persona;
 
 public class Ejecutable {
@@ -14,7 +17,7 @@ public class Ejecutable {
     	
     	ArrayList <Persona> ArregloPersonas = new ArrayList(); 
 		
-		ArregloPersonas= ScannerExample.GenerarScanner(saludo);
+//		ArregloPersonas= ScannerExample.GenerarScanner(saludo);
 		EscribeFichero.GenerarFichero(escribirArchivo, ArregloPersonas);
 		LeerUnArchivo.BuscarTrabajador(leerArchivo, "Daniel");
 		
